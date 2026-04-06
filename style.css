@@ -1267,3 +1267,36 @@
       nav { padding: 1rem 4%; }
       .nav-links { display: none; }
     }
+
+    /* ── LANGUAGE TOGGLE ─────────────────────────────────────── */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 20px;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      transition: border-color 0.2s;
+      margin-left: 1rem;
+    }
+    .lang-toggle:hover { border-color: var(--gold); }
+    .lang-toggle span[data-lang] {
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .lang-toggle span[data-lang]:hover { color: var(--gold); }
+    .lang-toggle .lang-active {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .lang-toggle .lang-sep {
+      color: rgba(201,168,76,0.3);
+      pointer-events: none;
+    }
