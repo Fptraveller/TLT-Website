@@ -58,6 +58,7 @@ const translations = {
     // ── JOURNEY: Page hero ────────────────────────────────────────────
     'breadcrumb-journey': 'The Journey',
     'page-hero-title':  'Walk the <em>Trail</em>.<br>Lead from Within.',
+    'page-hero-sub':    'Five phases. Twenty-five Leadership Distinctions. One journey toward sustainable, deeply human leadership.',
     // ── JOURNEY: Trail nav ────────────────────────────────────────────
     'tnav-1':           'Basecamp',
     'tnav-2':           'Trail Pathfinding',
@@ -80,7 +81,7 @@ const translations = {
     'p1-body-1': 'Every great journey begins with preparation. Basecamp is where leaders and teams establish the psychological safety, shared language, and mutual trust needed to venture further. Without a solid Basecamp, everything else risks collapse.',
     'p1-body-2': 'This phase focuses on slowing down enough to go fast. It uses structured exercises, including the Team Barometer and Team Weather tools, to surface what\'s actually happening beneath the surface of team dynamics.',
     'p1-h4-2':   'Core work in this phase',
-    'p1-core':   'Teams identify their real starting point. Hidden tensions are named safely. Core Quadrant work (Ofman) helps individuals recognise their strengths and blind spots. Leaders learn to listen at a different depth.',
+    'p1-core':   'Teams identify their real starting point. Hidden tensions are named safely. Leaders learn to listen at a different depth.',
     'p1-h4-3':   'Leadership Distinction Cards: Basecamp',
     // ── JOURNEY: Phase 2 ──────────────────────────────────────────────
     'p2-h4-1':   'What happens here?',
@@ -94,7 +95,7 @@ const translations = {
     'p3-body-1': 'Trailwalking is where Pulse Leadership™ comes alive. This phase is about stabilising the rhythm of leadership, building consistent habits and practices that create cultural traction over time.',
     'p3-body-2': 'Most development programmes stop after inspiration. Trailwalking is where the real work begins: turning insights into daily practices, and daily practices into team culture.',
     'p3-h4-2':   'Core work in this phase',
-    'p3-core':   'Leaders identify their "leadership drip", the small, consistent actions that signal what they truly value. Team rituals are designed intentionally. The Fresh Air Effect diagnostic is used here to measure cultural temperature and spot drift before it becomes direction loss.',
+    'p3-core':   'Leaders identify their "leadership pulse", the small, consistent actions that signal what they truly value. Team rituals are designed intentionally. The Fresh Air Effect diagnostic is used here to measure cultural temperature and spot drift before it becomes direction loss.',
     'p3-h4-3':   'Leadership Distinction Cards: Trailwalking',
     // ── JOURNEY: Phase 4 ──────────────────────────────────────────────
     'p4-h4-1':   'What happens here?',
@@ -125,8 +126,9 @@ const translations = {
     'walk-headline': "Let's take a walk together.",
     'walk-cta':      'Start the conversation ↓',
     // ── JOURNEY: Contact ──────────────────────────────────────────────
-    'contact-label':    "Let's Connect",
+    'contact-label':    "Let's Connect for a walk",
     'contact-title':    'Ready to bring the trail<br>to your team?',
+    'contact-intro':    "Whether you're an organisation exploring a leadership programme...",
     'contact-send':     'Send a message',
     'contact-tgc':      'The Green Connection',
     'contact-location': 'Based in the Netherlands · Working internationally',
@@ -144,7 +146,7 @@ const translations = {
 
   nl: {
     // ── INDEX: Navigation ──────────────────────────────────────────────
-    'nav-journey':      'De Reis',
+    'nav-journey':      'De Trektocht',
     'nav-philosophy':   'Filosofie',
     'nav-forwhom':      'Voor Wie',
     'nav-explore':      'Ontdek',
@@ -156,20 +158,20 @@ const translations = {
     'nav-connect':      'Contact',
     // ── INDEX: Hero ───────────────────────────────────────────────────
     'hero-eyebrow':     'The Green Connection',
-    'hero-title':       'Leiderschap is een <em>Reis</em>,<br>Geen Evenement',
-    'hero-sub':         'Een vijffasig ontwikkelingstraject voor leiders en teams die cultuur willen opbouwen door ritme, niet door intensiteit.',
-    'hero-btn-primary': 'Ontdek het Pad',
-    'hero-btn-ghost':   'Verken de Reis',
+    'hero-title':       'Leiderschap is een <em>trektocht</em>,<br>Geen georganiserde reis',
+    'hero-sub':         'Een trail met 5 momenten voor leiders en teams die cultuur willen opbouwen door ritme, niet door intensiteit.',
+    'hero-btn-primary': 'Ontdek de Trail',
+    'hero-btn-ghost':   'Verken de trektocht',
     // ── INDEX: Intro ──────────────────────────────────────────────────
     'intro-label':      'Wat is The Leadership Trail™?',
-    'intro-title':      'Een gestructureerd pad van <em>Basecamp</em> naar Range',
+    'intro-title':      'Een <em>gestructureerde trail</em> van Basecamp naar Range',
     'stat-1-label':     'Ontwikkelingsfasen',
     'stat-2-label':     'Leadership Distinction Cards',
-    'stat-3-label':     'Fresh Air diagnostieken',
+    'stat-3-label':     'Fresh Air diagnose',
     'stat-4-label':     'Gedeelde taal',
     // ── INDEX: Phases ─────────────────────────────────────────────────
     'phases-label':     'De Vijf Fasen',
-    'phases-title':     'Jouw pad van <em>veiligheid</em><br>naar blijvende impact',
+    'phases-title':     'Jouw trail van <em>veiligheid</em><br>naar blijvende impact',
     'phases-btn':       'Meer Info →',
     'phase-1-desc':     'Vestig psychologische veiligheid, gedeelde taal en het vertrouwen dat nodig is om samen de reis te beginnen.',
     'phase-1-tag':      'Fundament',
@@ -195,17 +197,18 @@ const translations = {
     'audience-2-title': 'Individuele Leiders',
     // ── INDEX: CTA ────────────────────────────────────────────────────
     'cta-label':        'Klaar om te Beginnen?',
-    'cta-title':        'Het pad begint met<br>één enkele stap',
+    'cta-title':        'De trail begint met<br>één enkele stap',
     'cta-btn':          'Verken de Reis →',
     // ── JOURNEY: Page hero ────────────────────────────────────────────
     'breadcrumb-journey': 'De Reis',
-    'page-hero-title':  'Loop het <em>Pad</em>.<br>Leid van Binnenuit.',
+    'page-hero-title':  'Loop de <em>Trail</em>.<br>Leid van Binnenuit.',
+    'page-hero-sub':    'Vijf fasen. Vijfentwintig keer een onderscheidende keuze in Leiderschap. Één reis naar duurzaam, diep menselijk leiderschap.',
     // ── JOURNEY: Trail nav ────────────────────────────────────────────
     'tnav-1':           'Basecamp',
     'tnav-2':           'Trail Pathfinding',
     'tnav-3':           'Trail Walking',
-    'tnav-4':           'De Top',
-    'tnav-5':           'Het Bereik',
+    'tnav-4':           'The Summit',
+    'tnav-5':           'The Range',
     // ── JOURNEY: Phase labels & tags ──────────────────────────────────
     'p1-label':         'Fase Één',
     'p1-tag':           'Fundament',
@@ -222,7 +225,7 @@ const translations = {
     'p1-body-1': 'Elke grote reis begint met voorbereiding. Basecamp is waar leiders en teams de psychologische veiligheid, gedeelde taal en onderlinge vertrouwen vestigen die nodig zijn om verder te gaan. Zonder een solide Basecamp loopt alles het risico ineen te storten.',
     'p1-body-2': 'Deze fase richt zich op genoeg vertragen om snel te kunnen gaan. Het gebruikt gestructureerde oefeningen, waaronder de Teambarometer en Teamweer tools, om zichtbaar te maken wat er werkelijk onder de oppervlakte van teamdynamiek speelt.',
     'p1-h4-2':   'Kernwerk in deze fase',
-    'p1-core':   'Teams identificeren hun werkelijke startpunt. Verborgen spanningen worden veilig benoemd. Kernkwadrantwerk (Ofman) helpt individuen hun sterke punten en blinde vlekken te herkennen. Leiders leren luisteren op een ander niveau.',
+    'p1-core':   'Teams identificeren hun werkelijke startpunt. Verborgen spanningen worden veilig benoemd. Leiders leren luisteren op een ander niveau.',
     'p1-h4-3':   'Leadership Distinction Cards: Basecamp',
     // ── JOURNEY: Phase 2 ──────────────────────────────────────────────
     'p2-h4-1':   'Wat gebeurt hier?',
@@ -236,7 +239,7 @@ const translations = {
     'p3-body-1': 'Trail Walking is waar Pulse Leadership™ tot leven komt. Deze fase gaat over het stabiliseren van het ritme van leiderschap — het opbouwen van consistente gewoonten en praktijken die culturele tractie creëren in de loop van de tijd.',
     'p3-body-2': 'De meeste ontwikkelingsprogramma\'s stoppen na inspiratie. Trail Walking is waar het echte werk begint: inzichten omzetten in dagelijkse praktijken, en dagelijkse praktijken in teamcultuur.',
     'p3-h4-2':   'Kernwerk in deze fase',
-    'p3-core':   'Leiders identificeren hun "leiderschapspuls" — de kleine, consistente acties die signaleren wat ze echt waarderen. Teamrituelen worden bewust ontworpen. De Fresh Air Effect diagnose wordt hier gebruikt om de culturele temperatuur te meten.',
+    'p3-core':   'Leiders identificeren hun "leiderschapspuls" — de kleine, consistente acties die signaleren wat ze echt waarderen. Teamrituelen worden bewust ontworpen. De Fresh Air Effect diagnose wordt hier gebruikt om de culturele temperatuur te meten en vanuit de meetgegevens actie te ondernemen.',
     'p3-h4-3':   'Leadership Distinction Cards: Trailwalking',
     // ── JOURNEY: Phase 4 ──────────────────────────────────────────────
     'p4-h4-1':   'Wat gebeurt hier?',
@@ -267,13 +270,14 @@ const translations = {
     'walk-headline': 'Laten we samen een stuk lopen.',
     'walk-cta':      'Start het gesprek ↓',
     // ── JOURNEY: Contact ──────────────────────────────────────────────
-    'contact-label':    'Laten we Verbinden',
-    'contact-title':    'Klaar om het pad naar<br>jouw team te brengen?',
+    'contact-label':    'Spreek af voor een wandeling',
+    'contact-title':    'Klaar om de trail naar<br>jouw team te brengen?',
+    'contact-intro':    'Als je als organisatie geinteresserd ben in een leiderschapsprogramma',
     'contact-send':     'Stuur een bericht',
     'contact-tgc':      'The Green Connection',
     'contact-location': 'Gevestigd in Nederland · Werkzaam internationaal',
     'form-title':       'Start een gesprek',
-    'form-sub':         'Vertel ons een beetje over waar je bent op je pad.',
+    'form-sub':         'Vertel mij over waar je bent op je trail.',
     'form-name-label':  'Jouw naam',
     'form-email-label': 'E-mailadres',
     'form-role-label':  'Ik ben…',

@@ -640,8 +640,8 @@
         <div class="email-capture">
           <h3>Want the full diagnosis?</h3>
           <p>Leave your name and email and I'll personally send you a detailed breakdown of your results — including where your team is on the trail and what to focus on first.</p>
-          <form name="fresh-air-leads" method="POST" data-netlify="true" id="email-capture-form">
-            <input type="hidden" name="form-name" value="fresh-air-leads" />
+          <form name="fresh-air-leads" method="POST" action="submit-diagnosis.php" id="email-capture-form">
+            <input type="hidden" name="_replyto" id="hidden-replyto" />
             <input type="hidden" name="score" id="hidden-score" />
             <input type="hidden" name="phase" id="hidden-phase" />
             <input type="hidden" name="answers" id="hidden-answers" />
@@ -824,14 +824,27 @@
     // ── Email form ──────────────────────────────────────────────────
     document.getElementById('email-capture-form').addEventListener('submit', function (e) {
       e.preventDefault();
+
+      // Mirror the email field into _replyto for Reply-To header in PHP mailer
+      const emailVal = this.querySelector('input[name="email"]').value;
+      document.getElementById('hidden-replyto').value = emailVal;
+
       const formData = new FormData(this);
-      fetch('/', { method: 'POST', body: formData })
-        .then(() => {
+
+      fetch('submit-diagnosis.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(function (res) {
           document.getElementById('email-capture-form').style.display = 'none';
           document.getElementById('capture-success').style.display    = 'block';
+          if (!res.ok) {
+            // Submission failed silently — log for debugging
+            console.warn('Formspree submission failed', res.status);
+          }
         })
-        .catch(() => {
-          // Fallback: still show success (Netlify handles it)
+        .catch(function () {
+          // Network error — still hide form, show friendly message
           document.getElementById('email-capture-form').style.display = 'none';
           document.getElementById('capture-success').style.display    = 'block';
         });
