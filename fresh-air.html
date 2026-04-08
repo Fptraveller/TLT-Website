@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Fresh Air Effect | The Leadership Trail™</title>
+  <meta name="description" content="Take The Fresh Air Effect diagnostic — find out where your team is on The Leadership Trail™ and get a personal breakdown from Focco Prins." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -730,8 +731,9 @@
         <div class="email-capture">
           <h3>Want the full diagnosis?</h3>
           <p>Leave your name and email and I'll personally send you a detailed breakdown of your results — including where your team is on the trail and what to focus on first.</p>
-          <form name="fresh-air-leads" method="POST" action="submit-diagnosis.php" id="email-capture-form">
-            <input type="hidden" name="_replyto" id="hidden-replyto" />
+          <form name="fresh-air-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="email-capture-form">
+            <input type="hidden" name="form-name" value="fresh-air-leads" />
+            <input type="hidden" name="bot-field" />
             <input type="hidden" name="score" id="hidden-score" />
             <input type="hidden" name="phase" id="hidden-phase" />
             <input type="hidden" name="answers" id="hidden-answers" />
@@ -911,32 +913,28 @@
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    // ── Email form ──────────────────────────────────────────────────
+    // ── Email form (Netlify Forms) ───────────────────────────────────
     document.getElementById('email-capture-form').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Mirror the email field into _replyto for Reply-To header in PHP mailer
-      const emailVal = this.querySelector('input[name="email"]').value;
-      document.getElementById('hidden-replyto').value = emailVal;
+      const form     = this;
+      const formData = new FormData(form);
 
-      const formData = new FormData(this);
+      // Encode as URL params for Netlify Forms AJAX submission
+      const encoded = new URLSearchParams(formData).toString();
 
-      fetch('submit-diagnosis.php', {
-        method: 'POST',
-        body: formData
+      fetch('/', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body:    encoded
       })
         .then(function (res) {
-          document.getElementById('email-capture-form').style.display = 'none';
-          document.getElementById('capture-success').style.display    = 'block';
-          if (!res.ok) {
-            // Submission failed silently — log for debugging
-            console.warn('Formspree submission failed', res.status);
-          }
+          form.style.display = 'none';
+          document.getElementById('capture-success').style.display = 'block';
         })
         .catch(function () {
-          // Network error — still hide form, show friendly message
-          document.getElementById('email-capture-form').style.display = 'none';
-          document.getElementById('capture-success').style.display    = 'block';
+          form.style.display = 'none';
+          document.getElementById('capture-success').style.display = 'block';
         });
     });
 
