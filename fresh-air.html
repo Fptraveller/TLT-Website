@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Fresh Air Effect™ | The Leadership Trail™</title>
+  <title>The Fresh Air Effect | The Leadership Trail™</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -75,7 +75,8 @@
       font-size: 0.75rem;
       color: var(--text-muted);
       flex-shrink: 0;
-      width: 80px;
+      width: 92px;
+      line-height: 1.4;
     }
     .scale-label.right { text-align: right; }
     .scale-options {
@@ -384,10 +385,81 @@
       margin: 0 auto;
     }
 
+    /* ── INSIGHTS STRIP ─────────────────────────────────────────── */
+    .insights-strip {
+      background: var(--green-deep);
+      border-radius: 12px;
+      padding: 2rem 2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .insights-strip h3 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .insight-item {
+      border-left: 2px solid var(--gold);
+      padding: 0 0 0 1rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .insight-item:last-child { margin-bottom: 0; }
+
+    /* ── ABOUT FOCCO ─────────────────────────────────────────────── */
+    .about-focco {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--cream-dark);
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .about-focco img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      border: 2px solid var(--gold);
+    }
+    .about-focco-text h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      margin-bottom: 0.4rem;
+    }
+    .about-focco-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 0.9rem;
+    }
+    .about-focco-text a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+    .about-focco-text a:hover { color: var(--gold); }
+
     @media (max-width: 600px) {
       .scale-label { display: none; }
       .scale-btn   { width: 38px; height: 38px; font-size: 0.8rem; }
       .q-card      { padding: 1.25rem; }
+      .about-focco { flex-direction: column; }
+      .about-focco img { width: 64px; height: 64px; }
     }
   </style>
 </head>
@@ -406,7 +478,7 @@
   <!-- HERO -->
   <div class="fa-hero">
     <p class="section-label">Free Diagnostic</p>
-    <h1>The Fresh Air <em>Effect</em>™</h1>
+    <h1>The Fresh Air <em>Effect</em></h1>
     <p>Ten questions. Five minutes. A clear picture of your team's cultural health — and where the trail leads next.</p>
   </div>
 
@@ -437,7 +509,7 @@
           <div class="q-number">Question 01</div>
           <div class="q-text">Is what gets said in the meeting the same as what gets said in the corridor?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Corridor only</span>
             <div class="scale-options" id="opts-1">
               <label class="scale-option"><input type="radio" name="q1" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q1" value="2"><span class="scale-btn">2</span></label>
@@ -445,7 +517,7 @@
               <label class="scale-option"><input type="radio" name="q1" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q1" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Same in both</span>
           </div>
         </div>
 
@@ -454,7 +526,7 @@
           <div class="q-number">Question 02</div>
           <div class="q-text">Does your team move with direction — or just with activity?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Just activity</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q2" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q2" value="2"><span class="scale-btn">2</span></label>
@@ -462,7 +534,7 @@
               <label class="scale-option"><input type="radio" name="q2" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q2" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Clear direction</span>
           </div>
         </div>
 
@@ -471,7 +543,7 @@
           <div class="q-number">Question 03</div>
           <div class="q-text">Do your team agreements shape daily behaviour — or do they live only in meeting notes?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Meeting notes</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q3" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q3" value="2"><span class="scale-btn">2</span></label>
@@ -479,7 +551,7 @@
               <label class="scale-option"><input type="radio" name="q3" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q3" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Daily habit</span>
           </div>
         </div>
 
@@ -488,7 +560,7 @@
           <div class="q-number">Question 04</div>
           <div class="q-text">When tension arises, does your team name it — or manage appearances?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Manage it</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q4" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q4" value="2"><span class="scale-btn">2</span></label>
@@ -496,7 +568,7 @@
               <label class="scale-option"><input type="radio" name="q4" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q4" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Name it</span>
           </div>
         </div>
 
@@ -505,7 +577,7 @@
           <div class="q-number">Question 05</div>
           <div class="q-text">Does feedback in your team flow in all directions — or mostly downward?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">One way</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q5" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q5" value="2"><span class="scale-btn">2</span></label>
@@ -513,7 +585,7 @@
               <label class="scale-option"><input type="radio" name="q5" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q5" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">All directions</span>
           </div>
         </div>
 
@@ -522,7 +594,7 @@
           <div class="q-number">Question 06</div>
           <div class="q-text">Do people know why their work matters — beyond the task itself?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Just the task</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q6" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q6" value="2"><span class="scale-btn">2</span></label>
@@ -530,16 +602,16 @@
               <label class="scale-option"><input type="radio" name="q6" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q6" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Full purpose</span>
           </div>
         </div>
 
         <!-- Q7 -->
         <div class="q-card" id="card-7">
           <div class="q-number">Question 07</div>
-          <div class="q-text">Does your team run on rhythm — or on sprints?</div>
+          <div class="q-text">Does your team operate with a steady, predictable rhythm — or lurch from peak effort to quiet?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Peak &amp; quiet</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q7" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q7" value="2"><span class="scale-btn">2</span></label>
@@ -547,7 +619,7 @@
               <label class="scale-option"><input type="radio" name="q7" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q7" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Steady rhythm</span>
           </div>
         </div>
 
@@ -556,7 +628,7 @@
           <div class="q-number">Question 08</div>
           <div class="q-text">Do people take ownership — or wait for direction?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Wait for it</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q8" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q8" value="2"><span class="scale-btn">2</span></label>
@@ -564,7 +636,7 @@
               <label class="scale-option"><input type="radio" name="q8" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q8" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Take ownership</span>
           </div>
         </div>
 
@@ -573,7 +645,7 @@
           <div class="q-number">Question 09</div>
           <div class="q-text">When someone does something well, is it named — specifically and soon?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Rare &amp; vague</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q9" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q9" value="2"><span class="scale-btn">2</span></label>
@@ -581,7 +653,7 @@
               <label class="scale-option"><input type="radio" name="q9" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q9" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Specific &amp; soon</span>
           </div>
         </div>
 
@@ -590,7 +662,7 @@
           <div class="q-number">Question 10</div>
           <div class="q-text">When the news is hard, does leadership say it straight?</div>
           <div class="scale-row">
-            <span class="scale-label">Not at all</span>
+            <span class="scale-label">Softened</span>
             <div class="scale-options">
               <label class="scale-option"><input type="radio" name="q10" value="1"><span class="scale-btn">1</span></label>
               <label class="scale-option"><input type="radio" name="q10" value="2"><span class="scale-btn">2</span></label>
@@ -598,7 +670,7 @@
               <label class="scale-option"><input type="radio" name="q10" value="4"><span class="scale-btn">4</span></label>
               <label class="scale-option"><input type="radio" name="q10" value="5"><span class="scale-btn">5</span></label>
             </div>
-            <span class="scale-label right">Fully</span>
+            <span class="scale-label right">Said straight</span>
           </div>
         </div>
 
@@ -636,6 +708,24 @@
           <div id="breakdown-list"></div>
         </div>
 
+        <!-- Insights strip -->
+        <div class="insights-strip">
+          <h3>What teams typically discover</h3>
+          <div class="insight-item">Teams that score low on safety almost always find the same thing: the real conversation is happening somewhere else — just not in the room.</div>
+          <div class="insight-item">A score of 3 on direction often means the leader knows where they're going. The team just hasn't been told why.</div>
+          <div class="insight-item">The most common shift after working with these results: leaders stop adding more, and start doing less — more consistently.</div>
+        </div>
+
+        <!-- About Focco -->
+        <div class="about-focco">
+          <img src="IMG_8208.jpeg" alt="Focco Prins — The Leadership Trail" />
+          <div class="about-focco-text">
+            <h3>Focco Prins</h3>
+            <p>I developed The Leadership Trail™ from years of working with teams that were stuck — not for lack of ambition, but for lack of rhythm. I work with leaders who already understand the concepts but find that understanding alone doesn't change how a team actually behaves. My approach is practical, direct, and grounded in what's really happening — not what looks good on paper.</p>
+            <a href="journey.html">Discover The Leadership Trail™ →</a>
+          </div>
+        </div>
+
         <!-- Email capture -->
         <div class="email-capture">
           <h3>Want the full diagnosis?</h3>
@@ -652,7 +742,7 @@
             <div class="email-form-row" style="justify-content:center;">
               <button type="submit" class="btn-gold-capture">Send Me the Diagnosis →</button>
             </div>
-            <p class="email-privacy">No spam. Just one personal response from Focco.</p>
+            <p class="email-privacy">No spam. Just one personal response from Focco. By submitting you agree to our <a href="privacy.html" style="color: var(--text-muted); text-decoration: underline;">privacy policy</a>.</p>
           </form>
           <div class="capture-success" id="capture-success">
             ✓ Thanks! I'll be in touch shortly with your personal diagnosis.
