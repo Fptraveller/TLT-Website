@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Fresh Air Effect | The Leadership Trail™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── FRESH AIR PAGE STYLES ───────────────────────────────────── */
+    .fa-hero {
+      background: var(--green-deep);
+      padding: 7rem 5% 4rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .fa-hero .section-label { color: var(--gold); margin-bottom: 1rem; }
+    .fa-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 1rem; }
+    .fa-hero h1 em { font-family: 'Permanent Marker', cursive; font-style: normal; color: var(--gold); }
+    .fa-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.75); max-width: 600px; margin: 0 auto 2rem; line-height: 1.8; }
+
+    /* ── DIAGNOSTIC FORM ─────────────────────────────────────────── */
+    .diagnostic-section {
+      background: var(--cream);
+      padding: 4rem 5%;
+    }
+    .diagnostic-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .diagnostic-intro {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .diagnostic-intro h2 { font-size: 1.6rem; color: var(--green-deep); margin-bottom: 0.75rem; }
+    .diagnostic-intro p  { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+
+    /* Question card */
+    .q-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--cream-dark);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .q-card:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .q-card.answered { border-color: var(--green-light); }
+
+    .q-number {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .q-text {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--green-deep);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    /* Scale row */
+    .scale-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scale-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      width: 92px;
+      line-height: 1.4;
+    }
+    .scale-label.right { text-align: right; }
+    .scale-options {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .scale-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+    .scale-option input[type="radio"] { display: none; }
+    .scale-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--cream-dark);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .scale-btn:hover { border-color: var(--gold); color: var(--gold); background: #fff; }
+    .scale-option input[type="radio"]:checked + .scale-btn {
+      background: var(--green-deep);
+      border-color: var(--green-deep);
+      color: var(--white);
+      box-shadow: 0 2px 8px rgba(27,67,50,0.3);
+    }
+    .scale-num {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      margin: 0 0 2.5rem;
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .progress-track {
+      height: 6px;
+      background: var(--cream-dark);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Submit button */
+    .fa-submit-wrap {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .btn-fa-submit {
+      background: var(--green-deep);
+      color: var(--white);
+      border: none;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-fa-submit:hover  { background: var(--green-mid); }
+    .btn-fa-submit:active { transform: scale(0.98); }
+    .btn-fa-submit:disabled {
+      background: var(--cream-dark);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+    .submit-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* ── RESULTS PANEL ───────────────────────────────────────────── */
+    #results-panel {
+      display: none;
+      max-width: 780px;
+      margin: 0 auto;
+      animation: fadeUp 0.5s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-score-card {
+      background: var(--green-deep);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+    .result-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .result-score-number {
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold);
+      margin: 0.5rem 0;
+    }
+    .result-score-label {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem;
+    }
+    .result-phase-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+    .result-headline {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .result-description {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Score gauge */
+    .result-gauge-wrap {
+      margin: 2rem auto 0;
+      max-width: 400px;
+    }
+    .result-gauge-bar {
+      height: 10px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .result-gauge-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), #e8c97a);
+      border-radius: 5px;
+      transition: width 1s ease;
+      width: 0%;
+    }
+    .result-gauge-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.4rem;
+    }
+
+    /* Per-question breakdown */
+    .breakdown-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--cream-dark);
+    }
+    .breakdown-card h3 {
+      font-size: 1.1rem;
+      color: var(--green-deep);
+      margin-bottom: 1.25rem;
+    }
+    .breakdown-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.88rem;
+    }
+    .breakdown-q {
+      flex: 1;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .breakdown-score-bar {
+      width: 120px;
+      flex-shrink: 0;
+    }
+    .bsb-track {
+      height: 6px;
+      background: var(--cream-dark);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 0.2rem;
+    }
+    .bsb-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+    .bsb-num {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* ── EMAIL CAPTURE ───────────────────────────────────────────── */
+    .email-capture {
+      background: var(--cream-dark);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+    .email-capture h3 {
+      font-size: 1.3rem;
+      color: var(--green-deep);
+      margin-bottom: 0.75rem;
+    }
+    .email-capture p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .email-form-row {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 500px;
+      margin: 0 auto 0.75rem;
+      flex-wrap: wrap;
+    }
+    .email-form-row input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--cream-dark);
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: var(--white);
+      color: var(--text);
+    }
+    .email-form-row input:focus { outline: none; border-color: var(--gold); }
+    .btn-gold-capture {
+      background: var(--gold);
+      color: var(--green-deep);
+      border: none;
+      padding: 0.85rem 1.75rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-gold-capture:hover { background: var(--gold-light); }
+    .email-privacy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .capture-success {
+      display: none;
+      padding: 1rem;
+      background: rgba(64,145,108,0.1);
+      border: 1px solid var(--green-light);
+      border-radius: 8px;
+      color: var(--green-deep);
+      font-size: 0.9rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── INSIGHTS STRIP ─────────────────────────────────────────── */
+    .insights-strip {
+      background: var(--green-deep);
+      border-radius: 12px;
+      padding: 2rem 2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .insights-strip h3 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .insight-item {
+      border-left: 2px solid var(--gold);
+      padding: 0 0 0 1rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .insight-item:last-child { margin-bottom: 0; }
+
+    /* ── ABOUT FOCCO ─────────────────────────────────────────────── */
+    .about-focco {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--cream-dark);
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .about-focco img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      border: 2px solid var(--gold);
+    }
+    .about-focco-text h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      margin-bottom: 0.4rem;
+    }
+    .about-focco-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 0.9rem;
+    }
+    .about-focco-text a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+    .about-focco-text a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .scale-label { display: none; }
+      .scale-btn   { width: 38px; height: 38px; font-size: 0.8rem; }
+      .q-card      { padding: 1.25rem; }
+      .about-focco { flex-direction: column; }
+      .about-focco img { width: 64px; height: 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">The Leadership Trail™</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="journey.html">The Journey</a></li>
+      <li><a href="journey.html#contact" class="nav-cta">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="fa-hero">
+    <p class="section-label">Free Diagnostic</p>
+    <h1>The Fresh Air <em>Effect</em></h1>
+    <p>Ten questions. Five minutes. A clear picture of your team's cultural health — and where the trail leads next.</p>
+  </div>
+
+  <!-- DIAGNOSTIC FORM -->
+  <section class="diagnostic-section" id="diagnostic">
+    <div class="diagnostic-inner">
+
+      <div class="diagnostic-intro">
+        <h2>Rate your team honestly</h2>
+        <p>Answer each question on a scale of 1 to 5.<br>
+           <strong>1</strong> = Not at all &nbsp;·&nbsp; <strong>3</strong> = Partially &nbsp;·&nbsp; <strong>5</strong> = Fully</p>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-meta">
+          <span id="progress-text">0 of 10 answered</span>
+          <span id="progress-pct">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <form id="diagnostic-form">
+
+        <!-- Q1 -->
+        <div class="q-card" id="card-1">
+          <div class="q-number">Question 01</div>
+          <div class="q-text">Is what gets said in the meeting the same as what gets said in the corridor?</div>
+          <div class="scale-row">
+            <span class="scale-label">Corridor only</span>
+            <div class="scale-options" id="opts-1">
+              <label class="scale-option"><input type="radio" name="q1" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q1" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q1" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q1" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q1" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Same in both</span>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q-card" id="card-2">
+          <div class="q-number">Question 02</div>
+          <div class="q-text">Does your team move with direction — or just with activity?</div>
+          <div class="scale-row">
+            <span class="scale-label">Just activity</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q2" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q2" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q2" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q2" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q2" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Clear direction</span>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q-card" id="card-3">
+          <div class="q-number">Question 03</div>
+          <div class="q-text">Do your team agreements shape daily behaviour — or do they live only in meeting notes?</div>
+          <div class="scale-row">
+            <span class="scale-label">Meeting notes</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q3" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q3" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q3" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q3" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q3" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Daily habit</span>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="q-card" id="card-4">
+          <div class="q-number">Question 04</div>
+          <div class="q-text">When tension arises, does your team name it — or manage appearances?</div>
+          <div class="scale-row">
+            <span class="scale-label">Manage it</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q4" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q4" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q4" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q4" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q4" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Name it</span>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="q-card" id="card-5">
+          <div class="q-number">Question 05</div>
+          <div class="q-text">Does feedback in your team flow in all directions — or mostly downward?</div>
+          <div class="scale-row">
+            <span class="scale-label">One way</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q5" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q5" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q5" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q5" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q5" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">All directions</span>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="q-card" id="card-6">
+          <div class="q-number">Question 06</div>
+          <div class="q-text">Do people know why their work matters — beyond the task itself?</div>
+          <div class="scale-row">
+            <span class="scale-label">Just the task</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q6" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q6" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q6" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q6" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q6" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Full purpose</span>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="q-card" id="card-7">
+          <div class="q-number">Question 07</div>
+          <div class="q-text">Does your team operate with a steady, predictable rhythm — or lurch from peak effort to quiet?</div>
+          <div class="scale-row">
+            <span class="scale-label">Peak &amp; quiet</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q7" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q7" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q7" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q7" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q7" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Steady rhythm</span>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="q-card" id="card-8">
+          <div class="q-number">Question 08</div>
+          <div class="q-text">Do people take ownership — or wait for direction?</div>
+          <div class="scale-row">
+            <span class="scale-label">Wait for it</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q8" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q8" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q8" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q8" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q8" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Take ownership</span>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="q-card" id="card-9">
+          <div class="q-number">Question 09</div>
+          <div class="q-text">When someone does something well, is it named — specifically and soon?</div>
+          <div class="scale-row">
+            <span class="scale-label">Rare &amp; vague</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q9" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q9" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q9" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q9" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q9" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Specific &amp; soon</span>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="q-card" id="card-10">
+          <div class="q-number">Question 10</div>
+          <div class="q-text">When the news is hard, does leadership say it straight?</div>
+          <div class="scale-row">
+            <span class="scale-label">Softened</span>
+            <div class="scale-options">
+              <label class="scale-option"><input type="radio" name="q10" value="1"><span class="scale-btn">1</span></label>
+              <label class="scale-option"><input type="radio" name="q10" value="2"><span class="scale-btn">2</span></label>
+              <label class="scale-option"><input type="radio" name="q10" value="3"><span class="scale-btn">3</span></label>
+              <label class="scale-option"><input type="radio" name="q10" value="4"><span class="scale-btn">4</span></label>
+              <label class="scale-option"><input type="radio" name="q10" value="5"><span class="scale-btn">5</span></label>
+            </div>
+            <span class="scale-label right">Said straight</span>
+          </div>
+        </div>
+
+        <div class="fa-submit-wrap">
+          <button type="button" id="show-results-btn" class="btn-fa-submit" disabled>
+            See My Score →
+          </button>
+          <p class="submit-note">Answer all 10 questions to unlock your score.</p>
+        </div>
+
+      </form>
+
+      <!-- ── RESULTS PANEL ─────────────────────────────────────────── -->
+      <div id="results-panel">
+
+        <!-- Score card -->
+        <div class="result-score-card">
+          <div class="result-label">Your Fresh Air Score</div>
+          <div class="result-score-number" id="score-number">—</div>
+          <div class="result-score-label">out of 100</div>
+          <div class="result-phase-badge" id="result-phase">—</div>
+          <div class="result-headline" id="result-headline">—</div>
+          <div class="result-description" id="result-description">—</div>
+          <div class="result-gauge-wrap">
+            <div class="result-gauge-bar">
+              <div class="result-gauge-fill" id="result-gauge"></div>
+            </div>
+            <div class="result-gauge-meta"><span>0</span><span id="gauge-label">—</span><span>100</span></div>
+          </div>
+        </div>
+
+        <!-- Breakdown -->
+        <div class="breakdown-card">
+          <h3>Your answers at a glance</h3>
+          <div id="breakdown-list"></div>
+        </div>
+
+        <!-- Insights strip -->
+        <div class="insights-strip">
+          <h3>What teams typically discover</h3>
+          <div class="insight-item">Teams that score low on safety almost always find the same thing: the real conversation is happening somewhere else — just not in the room.</div>
+          <div class="insight-item">A score of 3 on direction often means the leader knows where they're going. The team just hasn't been told why.</div>
+          <div class="insight-item">The most common shift after working with these results: leaders stop adding more, and start doing less — more consistently.</div>
+        </div>
+
+        <!-- About Focco -->
+        <div class="about-focco">
+          <img src="IMG_8208.jpeg" alt="Focco Prins — The Leadership Trail" />
+          <div class="about-focco-text">
+            <h3>Focco Prins</h3>
+            <p>I developed The Leadership Trail™ from years of working with teams that were stuck — not for lack of ambition, but for lack of rhythm. I work with leaders who already understand the concepts but find that understanding alone doesn't change how a team actually behaves. My approach is practical, direct, and grounded in what's really happening — not what looks good on paper.</p>
+            <a href="journey.html">Discover The Leadership Trail™ →</a>
+          </div>
+        </div>
+
+        <!-- Email capture -->
+        <div class="email-capture">
+          <h3>Want the full diagnosis?</h3>
+          <p>Leave your name and email and I'll personally send you a detailed breakdown of your results — including where your team is on the trail and what to focus on first.</p>
+          <form name="fresh-air-leads" method="POST" action="submit-diagnosis.php" id="email-capture-form">
+            <input type="hidden" name="_replyto" id="hidden-replyto" />
+            <input type="hidden" name="score" id="hidden-score" />
+            <input type="hidden" name="phase" id="hidden-phase" />
+            <input type="hidden" name="answers" id="hidden-answers" />
+            <div class="email-form-row">
+              <input type="text"  name="name"  placeholder="Your name" required />
+              <input type="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="email-form-row" style="justify-content:center;">
+              <button type="submit" class="btn-gold-capture">Send Me the Diagnosis →</button>
+            </div>
+            <p class="email-privacy">No spam. Just one personal response from Focco. By submitting you agree to our <a href="privacy.html" style="color: var(--text-muted); text-decoration: underline;">privacy policy</a>.</p>
+          </form>
+          <div class="capture-success" id="capture-success">
+            ✓ Thanks! I'll be in touch shortly with your personal diagnosis.
+          </div>
+        </div>
+
+      </div>
+      <!-- end results-panel -->
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">The Leadership Trail™</div>
+    <p>© 2025 Focco Prins · The Green Connection · <a href="index.html">Home</a> · <a href="journey.html">The Journey</a></p>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+  (function () {
+
+    // ── Phase interpretation table ──────────────────────────────────
+    const phases = [
+      {
+        min: 0, max: 25,
+        phase:       'Basecamp',
+        headline:    'Time to establish your foundation.',
+        description: 'Your team is at the start of the trail. Psychological safety, shared language and trust need to be built before anything else. The good news: every great journey begins here.',
+        color:       '#C9A84C'
+      },
+      {
+        min: 26, max: 45,
+        phase:       'Trail Pathfinding',
+        headline:    'Direction needs to be clarified.',
+        description: 'Some safety exists, but your team lacks a clear and shared direction. Values, agreements and purpose need to be made explicit. The trail is there — it just needs to be marked.',
+        color:       '#5A8A6A'
+      },
+      {
+        min: 46, max: 65,
+        phase:       'Trail Walking',
+        headline:    'Build rhythm and consistency.',
+        description: 'Your team has direction but culture is still inconsistent. The focus now is on building daily leadership habits — the Pulse Leadership™ approach — that create lasting traction.',
+        color:       '#2D6A4F'
+      },
+      {
+        min: 66, max: 82,
+        phase:       'The Summit',
+        headline:    'Strong culture with visible impact.',
+        description: 'Your team is operating with clarity and momentum. Leadership is consistent and trust is high. The next step is deepening presence and expanding your impact further.',
+        color:       '#1B4332'
+      },
+      {
+        min: 83, max: 100,
+        phase:       'The Range',
+        headline:    'A model of distributed leadership.',
+        description: 'Your culture is healthy and self-sustaining. Leadership is no longer dependent on any single person — it lives in the team. Now is the time to mentor, scale, and expand your range.',
+        color:       '#0D2B1E'
+      }
+    ];
+
+    const questions = [
+      'Safety vs. false harmony',
+      'Direction vs. activity',
+      'Agreements in daily behaviour',
+      'Tension: named or managed?',
+      'Feedback: all directions?',
+      'Meaning beyond the task',
+      'Rhythm vs. sprints',
+      'Ownership vs. waiting',
+      'Recognition: specific & soon',
+      'Honesty when it\'s hard'
+    ];
+
+    // ── Progress tracking ───────────────────────────────────────────
+    const form        = document.getElementById('diagnostic-form');
+    const submitBtn   = document.getElementById('show-results-btn');
+    const submitNote  = submitBtn.nextElementSibling;
+    const progressFill = document.getElementById('progress-fill');
+    const progressText = document.getElementById('progress-text');
+    const progressPct  = document.getElementById('progress-pct');
+
+    function getAnswered() {
+      let count = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (form.querySelector(`input[name="q${i}"]:checked`)) count++;
+      }
+      return count;
+    }
+
+    function updateProgress() {
+      const answered = getAnswered();
+      const pct = Math.round(answered / 10 * 100);
+      progressFill.style.width = pct + '%';
+      progressText.textContent = `${answered} of 10 answered`;
+      progressPct.textContent  = pct + '%';
+      submitBtn.disabled = (answered < 10);
+      if (answered === 10) {
+        submitNote.textContent = 'All done — ready to see your score!';
+        submitNote.style.color = 'var(--green-mid)';
+      }
+    }
+
+    form.addEventListener('change', function (e) {
+      if (e.target.type === 'radio') {
+        const cardNum = e.target.name.replace('q', '');
+        const card = document.getElementById('card-' + cardNum);
+        if (card) card.classList.add('answered');
+        updateProgress();
+      }
+    });
+
+    // ── Show results ────────────────────────────────────────────────
+    submitBtn.addEventListener('click', function () {
+      // Gather scores
+      const scores = [];
+      for (let i = 1; i <= 10; i++) {
+        const val = parseInt(form.querySelector(`input[name="q${i}"]:checked`).value);
+        scores.push(val);
+      }
+
+      // Calculate percentage: (raw - 10) / 40 * 100
+      const rawTotal = scores.reduce((a, b) => a + b, 0);
+      const pct = Math.round((rawTotal - 10) / 40 * 100);
+
+      // Find phase
+      const phase = phases.find(p => pct >= p.min && pct <= p.max) || phases[0];
+
+      // Populate score card
+      document.getElementById('score-number').textContent    = pct;
+      document.getElementById('result-phase').textContent    = phase.phase;
+      document.getElementById('result-headline').textContent = phase.headline;
+      document.getElementById('result-description').textContent = phase.description;
+      document.getElementById('gauge-label').textContent     = pct + '% clarity';
+
+      // Animate gauge
+      setTimeout(() => {
+        document.getElementById('result-gauge').style.width = pct + '%';
+      }, 100);
+
+      // Build breakdown
+      const list = document.getElementById('breakdown-list');
+      list.innerHTML = '';
+      scores.forEach((s, i) => {
+        const pctQ = Math.round((s - 1) / 4 * 100);
+        const color = pctQ >= 70 ? '#2D6A4F' : pctQ >= 40 ? '#C9A84C' : '#C0392B';
+        list.innerHTML += `
+          <div class="breakdown-item">
+            <div class="breakdown-q">${questions[i]}</div>
+            <div class="breakdown-score-bar">
+              <div class="bsb-track"><div class="bsb-fill" style="width:${pctQ}%;background:${color}"></div></div>
+              <div class="bsb-num">${pctQ}%</div>
+            </div>
+          </div>`;
+      });
+
+      // Populate hidden form fields
+      document.getElementById('hidden-score').value   = pct + '/100';
+      document.getElementById('hidden-phase').value   = phase.phase;
+      document.getElementById('hidden-answers').value = scores.map((s,i) => `Q${i+1}:${s}`).join(', ');
+
+      // Show results, hide form
+      document.getElementById('diagnostic-form').style.display = 'none';
+      const panel = document.getElementById('results-panel');
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // ── Email form ──────────────────────────────────────────────────
+    document.getElementById('email-capture-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Mirror the email field into _replyto for Reply-To header in PHP mailer
+      const emailVal = this.querySelector('input[name="email"]').value;
+      document.getElementById('hidden-replyto').value = emailVal;
+
+      const formData = new FormData(this);
+
+      fetch('submit-diagnosis.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(function (res) {
+          document.getElementById('email-capture-form').style.display = 'none';
+          document.getElementById('capture-success').style.display    = 'block';
+          if (!res.ok) {
+            // Submission failed silently — log for debugging
+            console.warn('Formspree submission failed', res.status);
+          }
+        })
+        .catch(function () {
+          // Network error — still hide form, show friendly message
+          document.getElementById('email-capture-form').style.display = 'none';
+          document.getElementById('capture-success').style.display    = 'block';
+        });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

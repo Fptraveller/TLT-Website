@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Leadership Trail™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">The Leadership Trail™</a>
+    <ul class="nav-links">
+      <li><a href="#phases" data-i18n="nav-journey">The Journey</a></li>
+      <li><a href="#philosophy" data-i18n="nav-philosophy">Philosophy</a></li>
+      <li><a href="#forwhom" data-i18n="nav-forwhom">Who It's For</a></li>
+      <li><a href="journey.html" class="nav-cta" data-i18n="nav-explore">Explore</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow" data-i18n="hero-eyebrow">The Green Connection</p>
+    <h1 data-i18n-html="hero-title">Leadership Is a <em>Journey</em>,<br>Not an Event</h1>
+    <p class="hero-sub" data-i18n="hero-sub">A five-phase development trail for leaders and teams who want to build culture through rhythm, not intensity.</p>
+    <div class="hero-actions">
+      <a href="#phases" class="btn-primary" data-i18n="hero-btn-primary">Discover the Trail</a>
+      <a href="journey.html" class="btn-ghost" data-i18n="hero-btn-ghost">Explore the Journey</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro" id="intro">
+    <div class="section-inner intro-grid">
+      <div>
+        <p class="section-label" data-i18n="intro-label">What is The Leadership Trail™?</p>
+        <h2 class="section-title" data-i18n-html="intro-title">A structured path from <em>Basecamp</em> to Range</h2>
+        <p class="section-body">The Leadership Trail™ is a sequential leadership development programme built around five stages of the journey. Rather than a one-day event or a single training, it works through Pulse Leadership™, small, consistent actions that compound into lasting cultural change.</p>
+        <p class="section-body" style="margin-top:1rem;">Each phase builds on the last. Leaders move at their own pace, supported by practical tools, shared language, and deep reflection.</p>
+        <div class="intro-stats">
+          <div class="stat">
+            <div class="stat-number">5</div>
+            <div class="stat-label" data-i18n="stat-1-label">Development phases</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">25</div>
+            <div class="stat-label" data-i18n="stat-2-label">Leadership Distinction Cards</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">10</div>
+            <div class="stat-label" data-i18n="stat-3-label">Fresh Air diagnostics</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">1</div>
+            <div class="stat-label" data-i18n="stat-4-label">Shared language</div>
+          </div>
+        </div>
+      </div>
+      <div class="intro-visual">
+        <img src="IMG_Trail%20guide.JPG" alt="Focco Prins on the Leadership Trail, mountain path" />
+        <div class="intro-visual-caption">
+          <blockquote>"Culture changes through repetition, not intention."</blockquote>
+          <cite>Focco Prins, The Leadership Trail™</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE 5 PHASES -->
+  <section class="phases" id="phases">
+    <div class="section-inner">
+      <div class="phases-header">
+        <div>
+          <p class="section-label" data-i18n="phases-label">The Five Phases</p>
+          <h2 class="section-title" style="color:var(--white)" data-i18n-html="phases-title">Your trail from <em>safety</em><br>to sustained impact</h2>
+        </div>
+        <a href="journey.html" class="btn-primary" data-i18n="phases-btn">Deep Dive →</a>
+      </div>
+
+      <div class="phases-split">
+
+        <!-- LEFT: Trail map illustration -->
+        <div class="trail-map-wrap">
+          <img src="trail-map.png" alt="The Leadership Trail™, five phase trail map" />
+        </div>
+
+        <!-- RIGHT: Vertical trail list -->
+        <div class="phases-vertical">
+
+          <!-- BASECAMP -->
+          <div class="phase-stop">
+            <div class="phase-stop-marker">
+              <svg viewBox="0 0 80 62" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- ground lines -->
+              <line x1="4" y1="52" x2="22" y2="52"/>
+              <line x1="58" y1="52" x2="76" y2="52"/>
+              <!-- tent body -->
+              <path d="M22,52 L40,14 L58,52"/>
+              <!-- door -->
+              <path d="M33,52 L40,34 L47,52"/>
+            </svg>
+            </div>
+            <div class="phase-stop-num">Phase 01</div>
+            <div class="phase-stop-name">Basecamp</div>
+            <p class="phase-stop-desc" data-i18n="phase-1-desc">Establish psychological safety, shared language, and the trust needed to begin the journey together.</p>
+            <span class="phase-stop-tag" data-i18n="phase-1-tag">Foundation</span>
+          </div>
+
+          <!-- TRAIL PATHFINDING -->
+          <div class="phase-stop">
+            <div class="phase-stop-marker">
+              <svg viewBox="0 0 80 62" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="40" cy="33" rx="24" ry="22"/>
+              <!-- diamond needle -->
+              <path d="M18,33 L36,22 L58,33 L36,44 Z"/>
+              <!-- center circle -->
+              <circle cx="38" cy="33" r="3.5" stroke="currentColor" fill="none"/>
+            </svg>
+            </div>
+            <div class="phase-stop-num">Phase 02</div>
+            <div class="phase-stop-name">Trail Pathfinding</div>
+            <p class="phase-stop-desc" data-i18n="phase-2-desc">Clarify direction, values, and team agreements. Learn to read the terrain ahead.</p>
+            <span class="phase-stop-tag" data-i18n="phase-2-tag">Direction</span>
+          </div>
+
+          <!-- TRAIL WALKING -->
+          <div class="phase-stop">
+            <div class="phase-stop-marker">
+              <svg viewBox="0 0 80 66" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <!-- left tree -->
+              <line x1="17" y1="64" x2="17" y2="30"/>
+              <path d="M11,52 L17,40 L23,52"/>
+              <path d="M12,44 L17,34 L22,44"/>
+              <!-- centre tree (tallest) -->
+              <line x1="40" y1="64" x2="40" y2="18"/>
+              <path d="M30,58 L40,44 L50,58"/>
+              <path d="M31,49 L40,36 L49,49"/>
+              <path d="M33,40 L40,28 L47,40"/>
+              <path d="M34,31 L40,22 L46,31"/>
+              <!-- right tree -->
+              <line x1="63" y1="64" x2="63" y2="26"/>
+              <path d="M55,54 L63,42 L71,54"/>
+              <path d="M56,46 L63,36 L70,46"/>
+              <path d="M57,38 L63,30 L69,38"/>
+            </svg>
+            </div>
+            <div class="phase-stop-num">Phase 03</div>
+            <div class="phase-stop-name">Trail Walking</div>
+            <p class="phase-stop-desc" data-i18n="phase-3-desc">Build rhythm and consistency. Stabilise daily leadership habits that create cultural traction.</p>
+            <span class="phase-stop-tag" data-i18n="phase-3-tag">Rhythm</span>
+          </div>
+
+          <!-- THE SUMMIT -->
+          <div class="phase-stop">
+            <div class="phase-stop-marker">
+              <svg viewBox="0 0 80 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- rocky mountain peak -->
+              <path d="M4,60 L22,30 L30,38 L42,10 L54,32 L60,26 L68,36 L76,60"/>
+              <!-- flagpole -->
+              <line x1="42" y1="10" x2="42" y2="2"/>
+              <!-- flag -->
+              <path d="M42,2 L54,5 L42,9"/>
+            </svg>
+            </div>
+            <div class="phase-stop-num">Phase 04</div>
+            <div class="phase-stop-name">The Summit</div>
+            <p class="phase-stop-desc" data-i18n="phase-4-desc">Reach clarity of purpose and visible impact. Lead from strength and with full presence.</p>
+            <span class="phase-stop-tag" data-i18n="phase-4-tag">Impact</span>
+          </div>
+
+          <!-- THE RANGE -->
+          <div class="phase-stop">
+            <div class="phase-stop-marker">
+              <svg viewBox="0 0 80 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2,52 L16,22 L24,32 L36,6 L46,24 L54,16 L60,24 L66,18 L72,24 L78,52"/>
+            </svg>
+            </div>
+            <div class="phase-stop-num">Phase 05</div>
+            <div class="phase-stop-name">The Range</div>
+            <p class="phase-stop-desc" data-i18n="phase-5-desc">Distribute leadership, mentor others, and expand your influence across the wider landscape.</p>
+            <span class="phase-stop-tag" data-i18n="phase-5-tag">Legacy</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy" id="philosophy">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="philosophy-label">Our Philosophy</p>
+      <h2 class="section-title" data-i18n-html="philosophy-title">Built on three <em>enduring</em> beliefs</h2>
+      <div class="philosophy-grid">
+
+        <div class="philosophy-card">
+          <div class="philosophy-icon">
+            <!-- Drip / water drop -->
+            <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22,6 Q28,14 30,22 A8,8 0 0,1 14,22 Q16,14 22,6 Z"/>
+              <path d="M19,24 Q22,28 25,24" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 data-i18n="phil-1-title">Pulse Leadership™</h3>
+          <p>Sustainable leadership grows from small, consistent actions, not high-intensity events. Like water wearing stone, repetition creates transformation that lasts.</p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philosophy-icon">
+            <!-- Wind / fresh air lines -->
+            <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M6,14 Q18,12 24,14 Q30,16 34,12 A4,4 0 0,1 34,20"/>
+              <path d="M6,22 Q16,20 22,22 Q28,24 32,22"/>
+              <path d="M6,30 Q14,28 20,30 Q26,32 30,28 A4,4 0 0,1 30,36"/>
+            </svg>
+          </div>
+          <h3 data-i18n="phil-2-title">The Fresh Air Effect</h3>
+          <p data-i18n="phil-2-body">A ten-question cultural diagnostic that clears the fog. Teams who name their reality can navigate it. Clarity precedes change.</p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philosophy-icon">
+            <!-- Question mark -->
+            <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M16,16 Q16,10 22,10 Q28,10 28,16 Q28,20 22,22 L22,26"/>
+              <circle cx="22" cy="32" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <h3 data-i18n="phil-3-title">Questions Over Answers</h3>
+          <p>The best leaders create space for thinking. The Leadership Distinction Cards: 25 reflective prompts across all five phases, build awareness one question at a time.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG QUOTE -->
+  <section class="quote-section">
+    <div class="section-inner" style="text-align:center">
+      <div class="quote-ornament">"</div>
+      <p class="big-quote">The trail does not reward those who rush. It rewards those who <strong>show up, again and again</strong>, until the path becomes part of who they are.</p>
+      <p class="quote-attr">The Leadership Trail™</p>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="forwhom" id="forwhom">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="forwhom-label">Who Is This For?</p>
+      <h2 class="section-title" data-i18n-html="forwhom-title">Designed for those ready<br>to <em>lead differently</em></h2>
+      <div class="forwhom-grid">
+        <div class="audience-card">
+          <h3 data-i18n="audience-1-title">Organisations &amp; Teams</h3>
+          <div class="gold-line"></div>
+          <ul>
+            <li>Managers seeking a structured leadership pathway</li>
+            <li>Organisations wanting to build a shared leadership language</li>
+            <li>Companies scaling culture across departments and locations</li>
+            <li>Leadership teams navigating change and transition</li>
+            <li>Boards looking for sustainable team development</li>
+          </ul>
+        </div>
+        <div class="audience-card">
+          <h3 data-i18n="audience-2-title">Individual Leaders</h3>
+          <div class="gold-line"></div>
+          <ul>
+            <li>Managers wanting to lead from values, not just tasks</li>
+            <li>Emerging leaders building their identity and rhythm</li>
+            <li>Senior leaders seeking depth instead of short term succes</li>
+            <li>Leaders in transition, new role, new team, new territory</li>
+            <li>Anyone who believes leadership is a lifelong trail</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="cta-label">Ready to Begin?</p>
+      <h2 class="section-title" data-i18n-html="cta-title">The trail starts with<br>a single step</h2>
+      <p class="section-body">Explore the full model, discover the tools, or get in touch to discuss how The Leadership Trail™ can work for your team.</p>
+      <a href="journey.html" class="btn-dark" data-i18n="cta-btn">Explore the Journey →</a>
+      <a href="fresh-air.html" class="btn-primary" style="margin-left:1rem;">Free Diagnostic →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">The Leadership Trail™</div>
+    <p>© 2025 Focco Prins · The Green Connection · <a href="journey.html">The Journey</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
