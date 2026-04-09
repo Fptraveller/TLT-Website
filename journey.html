@@ -450,8 +450,9 @@
         <div class="contact-form-side">
           <h3 data-i18n="form-title">Start a conversation</h3>
           <p data-i18n="form-sub">Tell us a little about where you are on your trail.</p>
-          <form name="contact" method="POST" data-netlify="true" action="/success">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
             <div class="form-group">
               <label for="name" data-i18n="form-name-label">Your name</label>
               <input type="text" id="name" name="name" placeholder="First and last name" required />
@@ -476,6 +477,9 @@
             </div>
             <button type="submit" class="btn-gold" data-i18n="form-submit">Send Message →</button>
           </form>
+          <div id="contact-success" style="display:none; padding: 1.5rem; background: var(--green-deep); color: var(--white); border-radius: 8px; margin-top: 1rem;">
+            ✓ Thanks! Focco will be in touch shortly.
+          </div>
         </div>
       </div>
     </div>
@@ -488,6 +492,26 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form    = this;
+      const encoded = new URLSearchParams(new FormData(form)).toString();
+      fetch('/', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body:    encoded
+      })
+        .then(function () {
+          form.style.display = 'none';
+          document.getElementById('contact-success').style.display = 'block';
+        })
+        .catch(function () {
+          form.style.display = 'none';
+          document.getElementById('contact-success').style.display = 'block';
+        });
+    });
+  </script>
 
 </body>
 </html>
